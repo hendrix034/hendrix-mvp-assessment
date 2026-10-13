@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { api, AuthUser, getCurrentUser, login, logout } from './api/client';
+import { Inspections } from './Inspections';
 
 type Location = { id: number; name: string };
 
@@ -37,11 +38,7 @@ function App() {
       <div><h1 className="h3 mb-0">Safety Inspections</h1><div className="text-muted">Logged in as {user.name} ({user.role})</div></div>
       <button className="btn btn-outline-secondary" onClick={() => { logout(); setUser(null); }}>Logout</button>
     </div>
-    <div className="alert alert-info">Candidate task: add the Safety Inspections workflow here.</div>
-    <div className="card">
-      <div className="card-header">Existing locations endpoint</div>
-      <ul className="list-group list-group-flush">{locations.map(l => <li className="list-group-item" key={l.id}>{l.name}</li>)}</ul>
-    </div>
+    <Inspections key={user.id} user={user} locations={locations} />
   </div>;
 }
 
