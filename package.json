@@ -1,0 +1,12 @@
+{
+  "name": "dev-assessment-starter",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace backend\" \"npm run dev --workspace frontend\"",
+    "build": "npm run build --workspace backend && npm run build --workspace frontend"
+  },
+  "workspaces": ["backend", "frontend"],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

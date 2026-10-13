@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+
+# Build output
+dist/
+build/
+coverage/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Docker/local data
+mysql-data/
+
+# Backend
+backend/node_modules/
+backend/dist/
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+
+# Temporary files
+tmp/
+temp/

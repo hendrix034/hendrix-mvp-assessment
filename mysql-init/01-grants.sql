@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS assessment;
+CREATE USER IF NOT EXISTS 'assessment'@'%' IDENTIFIED BY 'assessment';
+GRANT ALL PRIVILEGES ON assessment.* TO 'assessment'@'%';
+FLUSH PRIVILEGES;
