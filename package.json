@@ -6,6 +6,9 @@
     "build": "npm run build --workspace backend && npm run build --workspace frontend"
   },
   "workspaces": ["backend", "frontend"],
+  "engines": {
+    "node": ">=18.18"
+  },
   "devDependencies": {
     "concurrently": "^8.2.2"
   }

@@ -85,3 +85,25 @@ docker compose up -d mysql
 ```
 
 Then restart the backend. This removes the local assessment database only.
+
+## Troubleshooting: Cannot find module 'caniuse-lite/dist/unpacker/agents'
+
+This means `node_modules` is incomplete or has mismatched versions (usually from an interrupted install or mixing npm/yarn/pnpm). It is not a code problem. Do a clean install from the project root using the committed `package-lock.json`:
+
+```bash
+# macOS / Linux / Git Bash
+rm -rf node_modules backend/node_modules frontend/node_modules
+npm ci
+```
+
+```powershell
+# Windows PowerShell
+Remove-Item -Recurse -Force node_modules, backend\node_modules, frontend\node_modules -ErrorAction SilentlyContinue
+npm ci
+```
+
+Use Node.js 18.18 or newer (Node 20 LTS recommended, see `.nvmrc`).
+
+## Troubleshooting: ECONNREFUSED on port 3307
+
+MySQL is not ready yet or Docker is not running. Docker exposes MySQL on host port **3307** (not 3306). Wait for `docker compose logs mysql` to show `ready for connections`, then restart the backend.
